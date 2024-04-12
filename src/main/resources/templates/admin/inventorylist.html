@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<th:block th:insert="admin/header.html"></th:block>
+	
+<div class="container mt-3">    
+        
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>S.no.</th>
+        <th>Inventory Name</th>
+        <th>Product</th>
+        <th>Added Date</th>
+        <th>Image</th>
+       	<th>Selling price</th>
+        <th>Cost price</th>
+        <th>Quantity</th>
+        <th>Status</th>
+        <th>Action</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="i : ${invList}">
+					<td th:text="${i.invid}"></td>
+					<td th:text="${i.invname}"></td>
+					<td th:text="${i.product.productname}"></td>
+					<td th:text="${i.addedDate}"></td>
+					<td><img th:src="@{'/images/' + ${i.photo}}" alt="inv Photo"
+						width="50" height="50"></td>
+					<td th:text="${i.sellprice}"></td>
+					<td th:text="${i.costprice}"></td>
+					<td th:text="${i.quantity}"></td>
+					<td><span th:if="${i.status == 1}">Active</span> <span
+						th:if="${i.status == 0}">Inactive</span></td>
+					<td><a
+						th:href="@{/admin/inventory/edit(invid=${i.invid})}"><input
+							type="submit" value="Edit" class="btn btn-success"></a></td>
+					<td> <a th:href="@{/admin/inventory/delete(invid=${i.invid})}" onclick="return confirm('Are you sure you want to delete?')"><input type="submit" value="Delete" class="btn btn-danger"></a></td>
+				</tr>
+    </tbody>
+  </table>
+</div>	
+<p class="text-center" style="color: red; text-align: center;">[[${msg}]]</p>
+
+	<th:block th:insert="admin/footer.html"></th:block>
+</body>
+</html>

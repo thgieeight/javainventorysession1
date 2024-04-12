@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<th:block th:insert="admin/header.html"></th:block>
+
+<div class="container mt-3">
+		<table class="table table-striped">
+			<thead>
+			      <tr>
+        <th>Pdf</th>
+        <th>Excel</th>
+      </tr>
+				<tr>
+					<td><a href="/admin/sellpdf"><Button class="btn btn-succuss">Download pdf</Button></a></td>
+					<td><a href="/admin/sellexcell"><Button class="btn btn-succuss">Download Excel</Button></a></td>
+					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<th:block th:insert="admin/footer.html"></th:block>
+
+</body>
+</html>

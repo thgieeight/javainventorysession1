@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<th:block th:insert="admin/header.html"></th:block>
+	
+<div class="container mt-3">            
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>S.no.</th>
+        <th>Sell Name</th>
+        <th>Customer Name</th>
+        <th>Added Date</th>
+        <th>Inventory name</th>
+        <th>Sell Quantity</th>
+        <th>Sell Amount</th>
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+            <tr th:each="s : ${sellList}">
+					<td th:text="${s.sellid}"></td>
+					<td th:text="${s.sellname}"></td>
+					<td th:text="${s.custname}"></td>
+					<td th:text="${s.addedDate}"></td>
+					<td th:text="${s.inventory.invname}"></td>
+					<td th:text="${s.sellquantity}"></td>
+					<td th:text="${s.sellamount}"></td>
+				</tr>
+    </tbody>
+  </table>
+</div>	
+	<th:block th:insert="admin/footer.html"></th:block>
+</body>
+</html>
